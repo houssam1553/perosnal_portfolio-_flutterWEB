@@ -13,8 +13,6 @@ import 'package:flutter/material.dart';
 List<String> titles = [
   StringConst.PLATFORM,
   StringConst.CATEGORY,
-  StringConst.AUTHOR,
-  StringConst.DESIGNER,
   StringConst.TECHNOLOGY_USED,
 ];
 
@@ -108,9 +106,13 @@ class _AboutprojectState extends State<Aboutproject> {
           // SpaceH12(),
           Container(
             width: projectDataWidth,
-            child: Wrap(
-              spacing: projectDataSpacing,
-              runSpacing: responsiveSize(context, 30, 40),
+            child: GridView.count(
+              crossAxisCount: 3,
+              shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
+              childAspectRatio: 1.2,
+              crossAxisSpacing: projectDataSpacing,
+              mainAxisSpacing: responsiveSize(context, 30, 40),
               children: [
                 ProjectData(
                   controller: widget.projectDataController,
@@ -127,29 +129,32 @@ class _AboutprojectState extends State<Aboutproject> {
                 ProjectData(
                   controller: widget.projectDataController,
                   width: widthOfProjectItem,
-                  title: StringConst.AUTHOR,
-                  subtitle: StringConst.DEV_NAME,
+                  title: StringConst.TECHNOLOGY_USED,
+                  subtitle: widget.projectData.technologyUsed ?? "N/A",
                 ),
               ],
             ),
           ),
-          widget.projectData.designer != null ? SpaceH30() : Empty(),
-          widget.projectData.designer != null
-              ? ProjectData(
-                  controller: widget.projectDataController,
-                  title: StringConst.DESIGNER,
-                  subtitle: widget.projectData.designer!,
+          SpaceH40(),
+          widget.projectData.projectAssets.isNotEmpty
+              ? Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Screenshots",
+                      style: textTheme.headlineMedium?.copyWith(
+                        fontSize: Sizes.TEXT_SIZE_36,
+                      ),
+                    ),
+                    SpaceH30(),
+                    _buildScreenshotCarousel(
+                      widget.projectData.projectAssets,
+                      context,
+                    ),
+                    SpaceH30(),
+                  ],
                 )
               : Empty(),
-          widget.projectData.technologyUsed != null ? SpaceH30() : Empty(),
-          widget.projectData.technologyUsed != null
-              ? ProjectData(
-                  controller: widget.projectDataController,
-                  title: StringConst.TECHNOLOGY_USED,
-                  subtitle: widget.projectData.technologyUsed!,
-                )
-              : Empty(),
-          SpaceH30(),
           Row(
             children: [
               widget.projectData.isLive
@@ -233,6 +238,56 @@ class _AboutprojectState extends State<Aboutproject> {
       ),
     );
   }
+
+  Widget _buildScreenshotCarousel(List<String> assets, BuildContext context) {
+    if (assets.isEmpty) {
+      return SizedBox.shrink();
+    }
+
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(
+        children: List.generate(
+          assets.length,
+          (index) => Padding(
+            padding: EdgeInsets.only(
+              right: 16.0,
+              bottom: 8.0,
+            ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(12),
+              child: Container(
+                width: 280,
+                height: 500,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.1),
+                      blurRadius: 10,
+                      offset: Offset(0, 4),
+                    ),
+                  ],
+                ),
+                child: Image.asset(
+                  assets[index],
+                  fit: BoxFit.cover,
+                  errorBuilder: (context, error, stackTrace) {
+                    return Container(
+                      color: Colors.grey[300],
+                      child: Center(
+                        child: Text("Image not found"),
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
 }
 
 class ProjectData extends StatelessWidget {
@@ -279,7 +334,7 @@ class ProjectData extends StatelessWidget {
             text: title,
             textStyle: titleStyle ?? defaultTitleStyle,
           ),
-          SpaceH12(),
+          SpaceH20(),
           AnimatedPositionedText(
             width: width,
             maxLines: 2,
@@ -291,6 +346,56 @@ class ProjectData extends StatelessWidget {
             textStyle: subtitleStyle ?? defaultSubtitleStyle,
           ),
         ],
+      ),
+    );
+  }
+
+  Widget _buildScreenshotCarousel(List<String> assets, BuildContext context) {
+    if (assets.isEmpty) {
+      return SizedBox.shrink();
+    }
+
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(
+        children: List.generate(
+          assets.length,
+          (index) => Padding(
+            padding: EdgeInsets.only(
+              right: 16.0,
+              bottom: 8.0,
+            ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(12),
+              child: Container(
+                width: 280,
+                height: 500,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.1),
+                      blurRadius: 10,
+                      offset: Offset(0, 4),
+                    ),
+                  ],
+                ),
+                child: Image.asset(
+                  assets[index],
+                  fit: BoxFit.cover,
+                  errorBuilder: (context, error, stackTrace) {
+                    return Container(
+                      color: Colors.grey[300],
+                      child: Center(
+                        child: Text("Image not found"),
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ),
+          ),
+        ),
       ),
     );
   }

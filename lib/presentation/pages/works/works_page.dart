@@ -1,7 +1,6 @@
 import 'package:Mohamad_Alzoubi_personal_website/core/layout/adaptive.dart';
 import 'package:Mohamad_Alzoubi_personal_website/core/utils/functions.dart';
 import 'package:Mohamad_Alzoubi_personal_website/presentation/pages/widgets/animated_footer.dart';
-import 'package:Mohamad_Alzoubi_personal_website/presentation/pages/works/widgets/noteworthy_projects.dart';
 import 'package:Mohamad_Alzoubi_personal_website/presentation/pages/widgets/page_header.dart';
 import 'package:Mohamad_Alzoubi_personal_website/presentation/widgets/custom_spacer.dart';
 import 'package:Mohamad_Alzoubi_personal_website/presentation/widgets/page_wrapper.dart';
@@ -105,13 +104,6 @@ class _WorksPageState extends State<WorksPage> with TickerProviderStateMixin {
               }
             },
           ),
-          CustomSpacer(heightFactor: 0.1),
-          Container(
-            child: Padding(
-              padding: padding,
-              child: NoteWorthyProjects(),
-            ),
-          ),
           CustomSpacer(heightFactor: 0.15),
           AnimatedFooter(),
         ],
@@ -137,7 +129,7 @@ class _WorksPageState extends State<WorksPage> with TickerProviderStateMixin {
             projectItemheight: projectHeight.toDouble(),
             subheight: subHeight.toDouble(),
             backgroundColor: AppColors.accentColor2.withOpacity(0.35),
-            title: data[index].title.toLowerCase(),
+            title: data[index].title,
             subtitle: data[index].category,
             containerColor: data[index].primaryColor,
             onTap: () {
@@ -169,7 +161,7 @@ class _WorksPageState extends State<WorksPage> with TickerProviderStateMixin {
           child: ProjectItemSm(
             projectNumber: index + 1 > 9 ? "${index + 1}" : "0${index + 1}",
             imageUrl: data[index].image,
-            title: data[index].title.toLowerCase(),
+            title: data[index].title,
             subtitle: data[index].category,
             containerColor: data[index].primaryColor,
             onTap: () {

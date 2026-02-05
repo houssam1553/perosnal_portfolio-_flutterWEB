@@ -34,9 +34,9 @@ class AppColors {
   // static const Color disneyPlus = Color(0xFF000000);
   static const Color disneyPlus = Color(0xFFB41100);
 
-  static const Color nimbus = Color(0xFFF6C350);
+  static const Color nimbus = Color.fromARGB(255, 95, 151, 136);
   static const Color nimbusNavTitle = AppColors.black;
-  static const Color nimbusSelectedNavTitle = Color(0xFFF6C350);
+  static const Color nimbusSelectedNavTitle = Color.fromARGB(255, 95, 151, 136);
 
   static const Color foodybite = Color(0xFF6B79F6);
   static const Color foodybiteNavTitle =  Color(0xFFB2B9CF);

@@ -7,12 +7,12 @@ class ImagePath {
   static const String screenshotsDir = "assets/screenshots";
 
   //Images
-  static const String DEV = "$imageDir/mohamad.jpg";
+  static const String DEV = "$imageDir/dev.png";
   static const String recommendationLetter = "$imageDir/reco.png";
   static const String certImage = "$imageDir/cert.png";
 
   static const String VYBZ = "$imageDir/vybz.jpg";
-  static const String DAVID = "imageDir/mohamad.jpg";
+  static const String DAVID = "imageDir/dev.png";
   static const String COLOSSAL_TOONS = "$imageDir/colossal_toons.jpg";
   static const String LOGIN_CATALOG = "$imageDir/login_catalog.jpg";
   static const String ONBOARDING_APP = "$imageDir/onboarding_app.jpg";
@@ -34,16 +34,16 @@ class ImagePath {
   static const String MEDITATION = "$imageDir/meditation.png";
   static const String ABOUT_PORTRAIT = "$imageDir/about_portrait.png";
   static const String DEV_ABOUT = "$imageDir/dev-about.jpg";
-  static const String DEV_MEDITATE = "$imageDir/mohamad.jpg";
+  static const String DEV_MEDITATE = "$imageDir/dev.png";
 
   static const String DEV_SKILLS = "$imageDir/skills.png";
   static const String DEV_SKILLS_1 = "$imageDir/skills1.png";
   static const String DEV_SKILLS_2 = "$imageDir/skills2.png";
   static const String GOOGLE_PLAY = "$imageDir/google_play.png";
 
-  // Nimbus
-  static const String NIMBUS_COVER = "$projectsDir/nimbus/nimbus_cover.jpg";
-  static const String NIMBUS = "$projectsDir/nimbus/nimbus.jpg";
+  // Nimbus (Chiriane)
+  static const String NIMBUS_COVER = "$projectsDir/chiriane/chiriane_cover.png";
+  static const String NIMBUS = "$projectsDir/chiriane/chiriane_cover.png";
 
   // Foodybite
   static const String FOODY_BITE_COVER =
@@ -68,8 +68,8 @@ class ImagePath {
       "$projectsDir/aerium-v2/typography.jpg";
   static const String AERIUM_V2_LAST = "$projectsDir/aerium-v2/last.jpg";
 
-  // Drop
-  static const String DROP_COVER = "$projectsDir/drop/drop_cover.png";
+  // Drop (Hz Market)
+  static const String DROP_COVER = "$projectsDir/hz_market/hz_market_cover.png";
   static const String DROP_DESC = "$projectsDir/drop/drop_description.gif";
   static const String DROP_EASY_ACCESS =
       "$projectsDir/drop/drop_easy_access.gif";
@@ -80,8 +80,8 @@ class ImagePath {
   static const String DROP_THANKS = "$projectsDir/drop/drop_thanks.gif";
   static const String DROP_WIREFRAMES = "$projectsDir/drop/drop_wireframes.gif";
 
-  // Roam
-  static const String ROAM_COVER = "$projectsDir/roam/roam_cover.jpeg";
+  // Roam (Cashmetaux)
+  static const String ROAM_COVER = "$projectsDir/cashmetaux/cashmetaux_cover.png";
   static const String ROAM_OVERALL = "$projectsDir/roam/roam_overall.jpeg";
   static const String ROAM_ONBOARDING =
       "$projectsDir/roam/roam_onboarding.jpeg";

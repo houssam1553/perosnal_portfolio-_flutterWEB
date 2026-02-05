@@ -2,6 +2,7 @@ import 'package:Mohamad_Alzoubi_personal_website/core/layout/adaptive.dart';
 import 'package:Mohamad_Alzoubi_personal_website/core/utils/functions.dart';
 import 'package:Mohamad_Alzoubi_personal_website/presentation/pages/project_detail/widgets/about_project.dart';
 import 'package:Mohamad_Alzoubi_personal_website/presentation/pages/project_detail/widgets/next_project.dart';
+import 'package:Mohamad_Alzoubi_personal_website/presentation/pages/project_detail/widgets/video_section.dart';
 import 'package:Mohamad_Alzoubi_personal_website/presentation/pages/widgets/simple_footer.dart';
 import 'package:Mohamad_Alzoubi_personal_website/presentation/widgets/animated_text_slide_box_transition.dart';
 import 'package:Mohamad_Alzoubi_personal_website/presentation/widgets/animated_wave.dart';
@@ -142,16 +143,16 @@ class _ProjectDetailPageState extends State<ProjectDetailPage>
             height: heightOfScreen(context),
             child: Stack(
               children: [
-                Image.asset(
-                  projectDetails.data.coverUrl,
-                  fit: BoxFit.cover,
-                  width: widthOfScreen(context),
-                  height: heightOfScreen(context),
-                ),
+                // Image.asset(
+                //   projectDetails.data.coverUrl,
+                //   fit: BoxFit.cover,
+                //   width: widthOfScreen(context),
+                //   height: heightOfScreen(context),
+                // ),
                 Container(
                   margin: EdgeInsets.only(bottom: waveLineHeight + 40),
                   child: Align(
-                    alignment: Alignment.bottomCenter,
+                    alignment: Alignment.center,
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
@@ -212,7 +213,13 @@ class _ProjectDetailPageState extends State<ProjectDetailPage>
             ),
           ),
           CustomSpacer(heightFactor: 0.15),
-          ..._buildProjectAlbum(projectDetails.data.projectAssets),
+          VideoSection(
+            videoUrl: projectDetails.data.videoUrl,
+            primaryColor: projectDetails.data.primaryColor,
+            width: contentAreaWidth,
+          ),
+          CustomSpacer(heightFactor: 0.15),
+          // ..._buildProjectAlbum(projectDetails.data.projectAssets),
           projectDetails.hasNextProject
               ? CustomSpacer(heightFactor: 0.15)
               : Empty(),

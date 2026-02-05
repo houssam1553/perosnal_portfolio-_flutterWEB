@@ -28,6 +28,7 @@ class ProjectItemData {
     this.navTitleColor = AppColors.grey600,
     this.navSelectedTitleColor = AppColors.black,
     this.appLogoColor = AppColors.black,
+    this.videoUrl = "",
   });
 
   final Color primaryColor;
@@ -52,6 +53,7 @@ class ProjectItemData {
   final bool isLive;
   final String webUrl;
   final String? technologyUsed;
+  final String videoUrl;
 }
 
 class ProjectData extends StatelessWidget {
