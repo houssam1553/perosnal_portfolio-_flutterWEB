@@ -206,7 +206,7 @@ class _ProjectDetailPageState extends State<ProjectDetailPage>
                 child: Aboutproject(
                   projectData: projectDetails.data,
                   controller: _aboutProjectController,
-                  projectDataController: _projectDataController,
+                  projectDataController: _rojectDataController,
                   width: contentAreaWidth,
                 ),
               ),
